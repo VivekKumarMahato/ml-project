@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Recommender System</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins',sans-serif;
+}
+body{
+  background-color: #7b98a3;
+}
+
+.contact{
+  position: relative;
+  top: 50px;
+  /* min-height: 120vh; */
+  padding: 50px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  background: url('beach8.jpg');
+  background-size: cover;
+}
+.contact .content-of-contact{
+  max-width: 800px;
+  text-align:center;
+}
+.contact .content-of-contact h2{
+  font-size: 36px;
+  font-weight: 500;
+  color:black;
+  text-decoration: underline;
+}
+.contact .content-of-contact p{
+  font-size: 20px;
+  font-weight: 300;
+  color:black;
+  /* background-color:#b4c5c7; */
+}
+.container-of-contact{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.container-of-contact .contactinfo{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+}
+.container-of-contact .contactinfo .box{
+  position: relative;
+  padding: 20px 0;
+  display: flex;
+
+}
+.container-of-contact .contactinfo .box .icon{
+  min-width: 60px;
+  height: 60px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 22px;
+}
+.container-of-contact .contactinfo .box .text{
+  display: flex;
+  margin-left: 20px;
+  font-size: 20px;
+  color: black;
+  flex-direction: column;
+  font-weight: 300;
+}
+.container-of-contact .contactinfo .box .text h3{
+  font-weight: 500;
+  color: black;
+}
+.contactform{
+  width: 40%;
+  padding: 40px;
+  background:#abb1ae;
+}
+.contactform h2{
+  font-size: 30px;
+  columns: #333;
+  font-weight: 500;
+}
+.contactform .inputbox{
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+.contactform .inputbox input,
+.contactform .inputbox textarea
+{
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 2px solid #333 ;
+  outline:none ;
+  resize: none;
+}
+.contactform .inputbox span{
+position: absolute;
+left: 0;
+padding: 5px;
+  font-size: 16px;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #676767;
+}
+.contactform .inputbox input:focus ~ span,
+.contactform .inputbox input:valid ~ span,
+.contactform .inputbox textarea:focus ~ span,
+.contactform .inputbox textarea:valid ~ span{
+  color: #e91e63;
+  font-size: 12px;
+  transform:translateY(-20px);
+}
+.contactform .inputbox input[type="submit"]{
+  width:100px ;
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+}
+
+@media (max-width:991px)
+{
+  .contact{
+    padding: 50px;
+  }
+  .container-of-contact{
+    flex-direction: column;
+  }
+  .container-of-contact .contactinfo{
+    margin-bottom: 40px;
+
+  }
+  .container-of-contact .contactinfo,.contactform{
+    width: 100%;
+  }
+}
+
+/* .contact video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+} */
+.contact .container-of-contact{
+  position: relative;
+  z-index: 1;
+  
+}
+.contact .content-of-contact{
+  position: relative;
+  z-index: 1;
+  
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 10%;
+    width: 100%;
+    height: 80px;
+    /* background-color:transparent; */
+    background-color: rgb(118, 15, 32);;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    z-index:100;
+}
+  .navbar-brand{
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    font-size: 26px;
+    color: aliceblue;
+    font-weight: 80px;
+    font-style:italic;
+     text-decoration:none;
+}
+    .navbar {
+        background: transparent;
+         /* background-color: rgb(212, 39, 166); */
+        height: 45px;
+        width: 100%;
+        text-align: right;
+        
+    }
+    .navbar a {
+    font-size: 25px;
+    font-weight: 500;
+    color: aliceblue;
+    /* color:rgb(118, 15, 32); */
+    text-decoration: none;
+    margin-left: 50px;
+    transition: 1s;
+   }
+
+</style>
+
+</head>
+<body>
+
+    <header class="header">
+        <a class="navbar-brand">recommender.in</a>
+    <nav class="navbar">
+        <!-- <a class="navbar-brand">Book-recommender</a> -->
+        <a href="/">Home</a>
+        <a href="/recommend">Recommend</a>
+        <a href="/contact">Contact</a>
+        </nav>
+        </header>
+
+     <section class="contact">
+        <!-- <video autoplay muted loop>
+            <source src="video1.mp4" type="video/mp4">
+        </video> -->
+        <div class="content-of-contact">
+            <h2>contact me</h2>
+            <p>Mail or call if any question or any inquiries, 
+                I would be very happy to answer your questions,my contact details are given below, contact me if required 
+                I am always ready to answer.</p>
+        </div>
+        <div class="container-of-contact">
+            <div class="contactinfo">
+                <div class="box">
+                    <div class="icons"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>moonidih,Dhanbad,Jharkhand,828129 </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icons"><i class="fa-solid fa-phone"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p> 8084888791</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icons"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p> vivekmahato676@gmail.com</p>
+                    </div>
+                </div>
+                <!-- --------------------------------------------------- -->
+                <div class="box">
+                    <div class="icons" ><i class="fa-brands fa-square-instagram"></i></div>
+                    <div class="text">
+                        <h3>Instagram</h3>
+                        <a href="https://www.instagram.com/vivek_mahato_01/"><h5>view profile-></h5></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icons" ><i class="fa-brands fa-linkedin"></i></div>
+                    <div class="text">
+                        <h3>Linkdin</h3>
+                        <a href="www.linkedin.com/in/vivek-kumar-mahato-6a3731222"><h5>view profile-></h5></a>
+                    </div>
+                </div>
+
+            <!-- ------------------------------------------------------------------     -->
+            </div>
+            <div class="contactform">
+                <form>
+                    <h2>send  message</h2>
+                    <div class="inputbox">
+                        <input type="text" name="" required="required">
+                        <span>full name</span> 
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" name="" required="required">
+                        <span>email</span> 
+                    </div>
+                    <div class="inputbox">
+                        <textarea required="required"></textarea>
+                        <span>type your message...</span> 
+                    </div>
+                    <div class="inputbox">
+                        <input type="submit" name="" value="send">
+                        
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    
+     </section>
+</body>
+</html>

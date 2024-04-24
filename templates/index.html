@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+   *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+    .text-white{
+        color:white
+    }
+    body{
+        /* background-image: url(image.jpg); */
+        background-color: #081c32;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    .header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 10%;
+    width: 100%;
+    height: 80px;
+    /* background-color:transparent; */
+    background-color: rgb(118, 15, 32);;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    z-index:100;
+}
+  .navbar-brand{
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 30px;
+    color: aliceblue;
+    font-weight: 80px;
+    font-style:italic;
+     text-decoration:none;
+}
+    .navbar {
+        background: transparent;
+         /* background-color: rgb(212, 39, 166); */
+        height: 45px;
+        width: 100%;
+        text-align: right;
+        
+    }
+    .navbar a {
+    font-size: 25px;
+    font-weight: 500;
+    color: aliceblue;
+    /* color:rgb(118, 15, 32); */
+    text-decoration: none;
+    margin-left: 50px;
+    transition: 1s;
+   }
+   .home{
+    position: absolute;
+    top:80px;
+    height: 600px;
+    width: 100%;
+    /* background-color: aquamarine; */
+    
+    /* background-size: cover; */
+  }
+  #img{
+    height:600px;
+    width:100%;
+  }
+ .homecont{
+    
+    background-color: aqua;
+   }
+   
+   .container{
+        /* background-color: rgb(4, 155, 80); */
+       position: absolute;
+       top:600px;
+       left: 200px;
+    }
+    .text-white-name{
+        font-size: 20px;
+        color: white;
+    }
+    .text-white{
+        font-size: 15px;
+    }
+    .card-body{
+        /* background-color: aquamarine; */
+        text-align: center;
+        overflow:hidden;
+        transition: 0.4s;
+    }
+    .card-body:hover{
+        z-index:4 ;
+        transform:scale(1.1);
+        box-shadow:0 25px 40px rgb(72, 72, 190);
+        transform: translateY(25px);
+        transition: transform(0.6s);
+}
+  .above_img{
+    /* background-color: rgb(211, 113, 22); */
+    position: absolute;
+    top: 150px;
+    left: 420px;
+    font-size: 150px;
+    font-style: italic;
+    color: whitesmoke;
+  }
+  .above_img p{
+    font-size: 60px;
+  }
+  
+    
+</style>
+<body>
+    <header class="header">
+        <a class="navbar-brand">recommender.in</a>
+    <nav class="navbar">
+        <!-- <a class="navbar-brand">Book-recommender</a> -->
+        <a href="/">Home</a>
+        <a href="/recommend">Recommend</a>
+        <a href="/contact">Contact</a>
+        </nav>
+        </header>
+
+        <section class="home">
+            <img src="{{user_image}}" id="img">
+             
+            
+        </section>
+        <div class="above_img">
+            <p>Book Recomendation System</p>
+            <h1>-----Meet  Your  Next  Favourite  Book-------</h1>
+        </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white" style="font-size:50px">Top 50 Books</h1>
+            </div>
+
+            {% for i in range(book_name|length) %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{ image[i] }}">
+                            <p class="text-white-name">{{ book_name[i] }}</p>
+                            <h4 class="text-white">{{ author[i] }}</h4>
+                            <h4 class="text-white">Votes - {{ votes[i] }}</h4>
+                            <h4 class="text-white">Rating - {{ rating[i] }}</h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+</body>
+</html>
